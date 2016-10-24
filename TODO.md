@@ -1,12 +1,28 @@
-Don't worry about pulse sizes, at all. Just use `#pulse_size`.
+Create source for:
+  * Complicated
+  * Complex
+  * Complex-Plus
 
-Make sources for:
-  * "complex", where each pulse is represented equal large number of 1s or 0s.
-  * "complicated", like "complex" but with pulse length skew. Hardcode skew in to be -5% of pulse size.
+Create solution for:
+  * Complicated
+  * Complex
+  * Complex-Plus
 
-Make examples in solution about:
-  * how to convert an array of arrays of 1/0 characters to a character.
-  * reading a bit from source, for simple.
-  * reading a byte from source, for simple.
-  * "complex"
-  * "complicated"
+Create scaffolds for:
+  * Simple
+  * Complicated
+  * Complex
+  * Complex-Plus
+
+Scaffolds should include check to `#payload_correct?`
+
+Scaffolds from Complicated up should read `#pulse_size`.
+
+Make hits for:
+  * converting binary string to integer.
+  * converting binary string to character.
+  * reading a bit from source, for simple -- note it will only work for simple.
+  * reading a byte from source, for simple -- note it will only work for simple.
+  * reading a bit from source, for complex -- note it will work for complex or simple.
+  * reading a byte from source, for complex -- note it will work for complex or simple.
+  * Smoothing input errors to remove noise.
