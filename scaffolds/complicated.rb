@@ -16,6 +16,7 @@ payload = ''
 
 puts "Pulse size is #{source.pulse_size}."
 
+# Insert your code here.
 # Use the same approach as simple.rb, but also use the source#pulse_size to
 # know how many 1s/0s in a row represent a single pulse.
 

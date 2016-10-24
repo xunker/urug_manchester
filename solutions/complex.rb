@@ -1,19 +1,30 @@
-# This is the same as simple.rb, except #read_bit is modified.
+# This is the same as complicated.rb, except #read_bit is modified and the
+# code is now run 3 times to make sure the errors are properly removed.
 require_relative '../manchester'
 
-source = Manchester::Complicated.new
-# This will also work if the source is Manchester::Simple
+source = Manchester::Complex.new
+# This will also work if the source is Manchester::Simple or ::Complicated
 
 payload = ''
 payload_size = nil
 
 def read_bit(source)
   pulses = 2.times.map{
-    source.pulse_size.times.map{
+
+    # Add all numbers in the pulse together.
+    pulse = source.pulse_size.times.map{
       print '.'
       source.get_next_pulse
-    }.uniq
-  }.flatten
+    }.inject(:+)
+
+    # Check the total; we are essentially getting an average and rounding it
+    # up to 1 or down to 0, but without the division step.
+    if pulse > (source.pulse_size/2)
+      1
+    else
+      0
+    end
+  }
 
   if pulses == [0,1]
     0
@@ -35,7 +46,7 @@ while !payload_size || (payload.length < payload_size)
   else
     character = [read_byte(source)].pack('B*')
     payload << character
-    sleep(0.1) # for dramatic effect!
+    # sleep(0.1) # for dramatic effect!
   end
 end
 
