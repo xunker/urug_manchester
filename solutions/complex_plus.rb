@@ -1,8 +1,9 @@
-# This is the same as complicated.rb, except #read_bit is modified.
+# This is the same as complex.rb, except #read_bit is modified.
 require_relative '../manchester'
 
-source = Manchester::Complex.new
-# This will also work if the source is Manchester::Simple or ::Complicated
+source = Manchester::ComplexPlus.new
+# This will also work if the source is Manchester::Simple, ::Complicated or
+# ::Complex.
 
 payload = ''
 payload_size = nil
@@ -45,7 +46,7 @@ while !payload_size || (payload.length < payload_size)
   else
     character = [read_byte(source)].pack('B*')
     payload << character
-    sleep(0.1) # for dramatic effect!
+    # sleep(0.1) # for dramatic effect!
   end
 end
 
