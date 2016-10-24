@@ -23,13 +23,13 @@ module Manchester
       [ 0, 1 ], # zero, low-high transition
       [ 1, 0 ]  # one, high-low transition
     ];
-  end
 
-  def gone_too_far!
-    raise "Gone too far!"
-  end
+    def gone_too_far!
+      raise "Tried to read too many pulses from the source!"
+    end
 
-  def payload_correct?(payload)
-    payload == "Hello, World."
+    def payload_correct?(payload)
+      payload == "Hello, World."
+    end
   end
 end

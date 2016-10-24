@@ -46,7 +46,7 @@ presenter or instructor explain these terms,
 [the Wikipedia page](https://en.wikipedia.org/wiki/Manchester_code) is a good
 place to start.
 
-Staring points for each challenge can be found in the `/scaffold` directory.
+Staring points for each challenge can be found in the `/scaffolds` directory.
 
 The pieces that are need in each challenge are:
 * Read two pulses and convert them in to one binary bit.

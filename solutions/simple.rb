@@ -1,14 +1,16 @@
 require_relative '../manchester'
 
-simple = Manchester::Simple.new
+source = Manchester::Simple.new
 
 payload = ''
 payload_size = nil
 
 def read_bit(source)
-  pulses = 2.times.map do |_i|
+  pulses = 2.times.map{
+    print '.'
     source.get_next_pulse
-  end
+  }
+
   if pulses == [0,1]
     0
   else
@@ -17,23 +19,26 @@ def read_bit(source)
 end
 
 def read_byte(source)
-  8.times.map do |_i|
+  8.times.map{
     read_bit(source).to_s
-  end.join.tap{|s| puts s.inspect}
+  }.join
 end
 
 while !payload_size || (payload.length < payload_size)
-  puts payload.length
   if !payload_size
-    payload_size = read_byte(simple).to_i(2)
+    payload_size = read_byte(source).to_i(2)
     puts "Payload size is #{payload_size}"
   else
-    # payload << read_byte(simple).unpack('h*')
-    character = [read_byte(simple)].pack('B*')
-    puts character.inspect
+    character = [read_byte(source)].pack('B*')
     payload << character
-    sleep(0.1)
+    sleep(0.1) # for dramatic effect!
   end
 end
 
-puts "Payload is #{payload.inspect}"
+puts "Done reading #{payload_size} bytes."
+puts "Decoded payload is #{payload.inspect}"
+if source.payload_correct?(payload)
+  puts "Payload is correct!"
+else
+  puts "Payload is not correct."
+end
