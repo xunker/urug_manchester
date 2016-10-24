@@ -24,6 +24,19 @@ module Manchester
       [ 1, 0 ]  # one, high-low transition
     ];
 
+    def initialize
+      @position = 0
+    end
+
+    def get_next_pulse
+      if pulse = pulses[@position]
+        @position += 1
+        pulse
+      else
+        gone_too_far!
+      end
+    end
+
     def gone_too_far!
       raise "Tried to read too many pulses from the source!"
     end

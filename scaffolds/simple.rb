@@ -33,8 +33,10 @@ payload = ''
 # First you will need to read the payload size.
 # Then you will need to read that many bytes from the source, covert them in to
 # characters and append them to the `payload` string variable.
+#
+# Get a "pulse" from the source by calling `source.get_next_pulse`
 
-puts "Decoded payload is #{payload.inspect}"
+puts "Decoded payload is #{payload.inspect}."
 if simple.payload_correct?(payload)
   puts "Payload is correct!"
 else
