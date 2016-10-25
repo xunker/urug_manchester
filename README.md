@@ -46,6 +46,8 @@ presenter or instructor explain these terms,
 [the Wikipedia page](https://en.wikipedia.org/wiki/Manchester_code) is a good
 place to start.
 
+The data you will receive is not a secret
+
 Staring points for each challenge can be found in the `/scaffolds` directory.
 
 The pieces that are need in each challenge are:
@@ -84,7 +86,29 @@ which tells you how many completed bytes you can expect from the source. If you
 try to read more data from the source than you should (like, the payload is 13
 bytes long, but you try to read 14) and exception will be thrown.
 
-The data stream further changes slightly through each challenge.
+Calling the `#get_next_pulse` method will give you the next reading of the data
+stream.
+
+For these challenges, the decoded data is the same. Here is what's expected:
+
+```ruby
+# Binary  Decoded Pulses    Meaning  
+00001101  0101010110100110  # The "payload size", which is the number of BYTES
+                            # that will be send in this message. Here, our
+                            # payload size will be 13 (an integer).
+01001000  0110010110010101  # H
+01100101  0110100101100110  # e
+01101100  0110100110100101  # l
+01101100  0110100110100101  # l
+01101111  0110100110101010  # o
+00101100  0101100110100101  # ,
+00100000  0101100101010101  # <space>
+01010111  0110011001101010  # W
+01101111  0110100110101010  # o
+01110010  0110101001011001  # r
+01101100  0110100110100101  # l
+01100100  0110100101100101  # d
+00101110  0101100110101001  # .
 
 #### Simple
 
