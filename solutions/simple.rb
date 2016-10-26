@@ -8,7 +8,7 @@ payload_size = nil
 def read_bit(source)
   pulses = 2.times.map{
     print '.'
-    source.get_next_pulse
+    source.read_signal
   }
 
   if pulses == [0,1]

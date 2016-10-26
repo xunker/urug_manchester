@@ -13,7 +13,7 @@ def read_bit(source)
     # Add all numbers in the pulse together.
     pulse = source.pulse_size.times.map{
       print '.'
-      source.get_next_pulse
+      source.read_signal
     }.inject(:+)
 
     # Check the total; we are essentially getting an average and rounding it

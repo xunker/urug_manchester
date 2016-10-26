@@ -28,7 +28,7 @@ module Manchester
       @position = 0
     end
 
-    def get_next_pulse
+    def read_signal
       if pulse = pulses[@position]
         @position += 1
         pulse

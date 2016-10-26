@@ -7,7 +7,7 @@
 pulses = 2.times.map{
   source.pulse_size.times.map{
     print '.'
-    source.get_next_pulse
+    source.read_signal
   }.uniq
 }.flatten
 

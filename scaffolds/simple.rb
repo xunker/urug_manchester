@@ -34,7 +34,7 @@ payload = ''
 # Then you will need to read that many bytes from the source, covert them in to
 # characters and append them to the `payload` string variable.
 #
-# Get a "pulse" from the source by calling `source.get_next_pulse`
+# Get a "pulse" from the source by calling `source.read_signal`
 
 puts "Decoded payload is #{payload.inspect}."
 if simple.payload_correct?(payload)

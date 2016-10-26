@@ -86,7 +86,7 @@ which tells you how many completed bytes you can expect from the source. If you
 try to read more data from the source than you should (like, the payload is 13
 bytes long, but you try to read 14) and exception will be thrown.
 
-Calling the `#get_next_pulse` method will give you the next reading of the data
+Calling the `#read_signal` method will give you the next reading of the data
 stream.
 
 For these challenges, the decoded data is the same. Here is what's expected:

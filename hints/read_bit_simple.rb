@@ -5,7 +5,7 @@
 # Assume `source` is an instance of Manchester::Simple.
 
 pulses = 2.times.map do
-  source.get_next_pulse
+  source.read_signal
 end
 
 bit = if pulses == [0,1] # low-high

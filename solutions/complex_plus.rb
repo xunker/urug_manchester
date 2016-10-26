@@ -14,7 +14,7 @@ payload_size = nil
 #     # Add all numbers in the pulse together.
 #     pulse = source.pulse_size.times.map{
 #       # print '.'
-#       source.get_next_pulse
+#       source.read_signal
 #     }.inject(:+)
 #
 #     # Check the total; we are essentially getting an average and rounding it
@@ -53,7 +53,7 @@ def signal_changed?(source)
   pulse = TIMES_TO_READ_SOURCE.times.map{
     # print '.'
     @current_signal_position += 1
-    source.get_next_pulse
+    source.read_signal
   }.inject(:+)
 
   # Check the total; we are essentially getting an average and rounding it
